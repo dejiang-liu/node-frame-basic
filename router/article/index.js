@@ -2,106 +2,31 @@ const express = require('express')
 
 const router = express.Router()
 
+const articlesControl = require('../../controller/article') 
+
 // List Article
-router.get('/', async (req, res, next) => {
-    try {
-        // do something
-        res.send('get  /articles')
-    } catch (err) {
-        next(err)
-    }
-})
+router.get('/', articlesControl.articles)
 
 // Feed Article
-router.get('/feed', async (req, res, next) => {
-    try {
-        // do something
-        res.send('get  /articles/feed')
-    } catch (err) {
-        next(err)
-    }
-})
+router.get('/feed', articlesControl.articlesFeed)
 
 // Get Article
-router.get('/:slug', async (req, res, next) => {
-    try {
-        // do something
-        res.send('get  /articles/:slug')
-    } catch (err) {
-        next(err)
-    }
-})
+router.get('/:slug', articlesControl.getArticles)
 
 // Create  Article
-router.post('/', async (req, res, next) => {
-    try {
-        // do something
-        res.send('post  /articles/')
-    } catch (err) {
-        next(err)
-    }
-})
+router.post('/', articlesControl.createArticles)
 // Update  Article
-router.put('/:slug', async (req, res, next) => {
-    try {
-        // do something
-        res.send('put  /articles/:slug')
-    } catch (err) {
-        next(err)
-    }
-})
+router.put('/:slug', articlesControl.updateArticles)
 // Delete Article
-router.delete('/:slug', async (req, res, next) => {
-    try {
-        // do something
-        res.send('delete  /articles/:slug')
-    } catch (err) {
-        next(err)
-    }
-})
+router.delete('/:slug', articlesControl.deleteArticles)
 // Add Comments to an Article
-router.post('/:slug/comments', async (req, res, next) => {
-    try {
-        // do something
-        res.send('delete  /articles/:slug/comments')
-    } catch (err) {
-        next(err)
-    }
-})
+router.post('/:slug/comments', articlesControl.addComments)
 // Get Comments from an Article
-router.get('/:slug/comments', async (req, res, next) => {
-    try {
-        // do something
-        res.send('get  /articles/:slug/comments')
-    } catch (err) {
-        next(err)
-    }
-})
+router.get('/:slug/comments', articlesControl.getComments)
 // Delete Comment
-router.delete('/:slug/comments/:id', async (req, res, next) => {
-    try {
-        // do something
-        res.send('delete  /articles/:slug/comments/:id')
-    } catch (err) {
-        next(err)
-    }
-})
+router.delete('/:slug/comments/:id', articlesControl.deleteComments)
 // Favorite Article
-router.post('/:slug/favorite', async (req, res, next) => {
-    try {
-        // do something
-        res.send('post  /articles/:slug/favorite')
-    } catch (err) {
-        next(err)
-    }
-})
+router.post('/:slug/favorite', articlesControl.favComments)
 // Unfavorite Article
-router.delete('/:slug/favorite', async (req, res, next) => {
-    try {
-        // do something
-        res.send('delete  /articles/:slug/favorite')
-    } catch (err) {
-        next(err)
-    }
-})
+router.delete('/:slug/favorite', articlesControl.unfavComments)
 module.exports = router
