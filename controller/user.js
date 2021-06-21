@@ -1,3 +1,6 @@
+const { User } = require('../model')
+
+
 exports.login = async (req, res, next) => {
     try {
         // do something
@@ -9,8 +12,20 @@ exports.login = async (req, res, next) => {
 
 exports.register = async (req, res, next) => {
     try {
-        // do something
-        res.send('post register /user 用户注册')
+        // 1. 获取请求数据
+        console.log(req.body);
+        // 2. 数据验证
+        // 3. 验证通过，将数据保存到数据库
+        const user = new User(req.body.user)
+        // 保存到数据库
+        await user.save()
+
+        let resUser = user.toJSON()
+        delete resUser.password
+        // 4. 发送成功响应
+        res.status(201).json({
+          resUser
+        })
     } catch (err) {
         next(err)
     }

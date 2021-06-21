@@ -5,6 +5,8 @@ const router = require('./router')
 
 const errorHandler = require('./middleware/error-handler')
 
+// require('./model') // 链接数据库成功
+
 const app = express()
 
 app.use(morgan('dev'))
