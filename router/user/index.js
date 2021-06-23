@@ -6,7 +6,8 @@ const userValidator = require('../../validator/user')
 
 
 // 用户登录
-router.post('/users/login', userControl.login)
+router.post('/users/login',
+  userValidator.login, userControl.login)
 // 用户注册
 router.post('/users',
   // 引入验证规则

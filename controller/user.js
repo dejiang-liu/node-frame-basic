@@ -4,7 +4,7 @@ const { User } = require('../model')
 exports.login = async (req, res, next) => {
     try {
         // do something
-        res.send('post /users/login 用户登录')
+        res.send('login')
     } catch (err) {
         next(err)
     }
