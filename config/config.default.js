@@ -4,5 +4,6 @@
 */
 
 module.exports = {
-    dbUri: "mongodb://localhost:27017/realworld"
+    dbUri: "mongodb://localhost:27017/realworld",
+    jwtSecret: 'ea7809c4-d723-11eb-b8bc-0242ac130003'
 }
